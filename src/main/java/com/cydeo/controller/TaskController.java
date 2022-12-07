@@ -28,8 +28,6 @@ public class TaskController {
         return ResponseEntity.ok(new ResponseWrapper("Tasks are successfully retrieved",taskDTOList, HttpStatus.OK));
     }
 
-
-
     @GetMapping("/{taskId}")
     @RolesAllowed("Manager")
     public ResponseEntity<ResponseWrapper> getTaskById(@PathVariable("taskId") Long taskId){
@@ -74,13 +72,11 @@ public class TaskController {
 
     }
 
-
     @GetMapping("/employee/archive")
     @RolesAllowed("Employee")
     public ResponseEntity<ResponseWrapper> employeeArchivedTasks(){
         List<TaskDTO> taskDTOList = taskService.listAllTasksByStatus(Status.COMPLETE);
         return ResponseEntity.ok(new ResponseWrapper("Tasks are successfully retrieved",taskDTOList,HttpStatus.OK));
-
     }
 
 }

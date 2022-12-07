@@ -11,11 +11,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Ticketing-App-REST" target="11" />
       <module name="ticketing-project-rest" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Ticketing-App-REST" options="-parameters" />
       <module name="ticketing-project-rest" options="-parameters" />
     </option>
   </component>
