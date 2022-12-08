@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @OpenAPIDefinition
 public class SwaggerConfig {
 
+    // coming from swagger documentation
     private static final String OAUTH_SCHEME_NAME = "oAuth";
     private static final String PROTOCOL_URL_FORMAT = "%s/realms/%s/protocol/openid-connect";
 
@@ -23,7 +24,7 @@ public class SwaggerConfig {
     }
 
     @Bean
-    public OpenAPI customOpenApi() {
+    public OpenAPI customOpenApi() { // configuration file to create swegger documentation for our app including OAuth 2 security structure
         return new OpenAPI()
                 .info(getInfo())
                 .components(new Components()

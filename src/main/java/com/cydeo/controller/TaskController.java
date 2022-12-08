@@ -4,6 +4,7 @@ import com.cydeo.dto.ResponseWrapper;
 import com.cydeo.dto.TaskDTO;
 import com.cydeo.enums.Status;
 import com.cydeo.service.TaskService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ public class TaskController {
 
     @GetMapping
     @RolesAllowed("Manager")
+    @Operation(summary = "Get tasks")
     public ResponseEntity<ResponseWrapper> getTasks(){
         List<TaskDTO> taskDTOList = taskService.listAllTasks();
         return ResponseEntity.ok(new ResponseWrapper("Tasks are successfully retrieved",taskDTOList, HttpStatus.OK));
@@ -30,6 +32,7 @@ public class TaskController {
 
     @GetMapping("/{taskId}")
     @RolesAllowed("Manager")
+    @Operation(summary = "Get task by Id")
     public ResponseEntity<ResponseWrapper> getTaskById(@PathVariable("taskId") Long taskId){
         TaskDTO task = taskService.findById(taskId);
         return ResponseEntity.ok(new ResponseWrapper("Task is successfully retrieved",task, HttpStatus.OK));
@@ -37,6 +40,7 @@ public class TaskController {
 
     @PostMapping
     @RolesAllowed("Manager")
+    @Operation(summary = "Create task")
     public ResponseEntity<ResponseWrapper> createTask(@RequestBody TaskDTO task){
         taskService.save(task);
         return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseWrapper("Task is successfully created",HttpStatus.CREATED));
@@ -44,13 +48,14 @@ public class TaskController {
 
     @DeleteMapping("/{taskId}")
     @RolesAllowed("Manager")
+    @Operation(summary = "Delete task")
     public ResponseEntity<ResponseWrapper> deleteTask(@PathVariable("taskId") Long taskId){
         taskService.delete(taskId);
         return ResponseEntity.ok(new ResponseWrapper("Task is successfully deleted", HttpStatus.OK));
     }
 
     @PutMapping
-    @RolesAllowed("Manager")
+    @RolesAllowed("Update task")
     public ResponseEntity<ResponseWrapper> updateTask(@RequestBody TaskDTO task){
         taskService.update(task);
         return ResponseEntity.ok(new ResponseWrapper("Task is successfully updated", HttpStatus.OK));
