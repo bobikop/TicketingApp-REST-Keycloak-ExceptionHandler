@@ -7,18 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ticketing-project-rest" />
+        <module name="ticketing-project-REST" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Ticketing-App-REST" target="11" />
-      <module name="ticketing-project-rest" target="11" />
+      <module name="ticketing-project-REST" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Ticketing-App-REST" options="-parameters" />
-      <module name="ticketing-project-rest" options="-parameters" />
+      <module name="ticketing-project-REST" options="-parameters" />
     </option>
   </component>
 </project>

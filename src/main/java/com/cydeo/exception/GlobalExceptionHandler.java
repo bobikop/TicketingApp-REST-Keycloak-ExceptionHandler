@@ -20,6 +20,8 @@ import java.util.Optional;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    // if any exception happen that exception belong to TicketingProjectException class.
+    // in that case execute bellow code (we are modify Jackson exception output from swagger)
     @ExceptionHandler(TicketingProjectException.class)
     public ResponseEntity<ResponseWrapper> serviceException(TicketingProjectException se){
         String message = se.getMessage();
@@ -31,7 +33,8 @@ public class GlobalExceptionHandler {
         String message = se.getMessage();
         return new ResponseEntity<>(ResponseWrapper.builder().success(false).code(HttpStatus.FORBIDDEN.value()).message(message).build(),HttpStatus.FORBIDDEN);
     }
-
+    // if any exception occur belongs to bellow listed classes @EexceptionHandler and not
+    // belong to any exception above this method will be executed
     @ExceptionHandler({Exception    .class, RuntimeException.class, Throwable.class, BadCredentialsException.class})
     public ResponseEntity<ResponseWrapper> genericException(Throwable e, HandlerMethod handlerMethod) {
 

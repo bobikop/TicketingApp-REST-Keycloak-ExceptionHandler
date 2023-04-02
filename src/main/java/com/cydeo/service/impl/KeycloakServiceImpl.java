@@ -48,7 +48,7 @@ public class KeycloakServiceImpl implements KeycloakService {
         keycloakUser.setEnabled(true);
 
 
-        // crete instance of the  in order to crete user or do anything else
+        // crete instance of the keycloak in order to crete user or do anything else
         Keycloak keycloak = getKeycloakInstance();
 
         RealmResource realmResource = keycloak.realm(keycloakProperties.getRealm());
@@ -61,7 +61,7 @@ public class KeycloakServiceImpl implements KeycloakService {
         ClientRepresentation appClient = realmResource.clients()
                 .findByClientId(keycloakProperties.getClientId()).get(0);
 
-        // this code goes to keycloak and checks all the roles, take userDTO role and check if is match with creted role in keycloak
+        // this code goes to keycloak and checks all the roles, take userDTO role and check if is match with created role in keycloak
         RoleRepresentation userClientRole = realmResource.clients().get(appClient.getId()) //
                 .roles().get(userDTO.getRole().getDescription()).toRepresentation();
 
@@ -89,6 +89,8 @@ public class KeycloakServiceImpl implements KeycloakService {
 
         keycloak.close();
     }
+
+    // all of information from method getInstance coming from Keycloak properties
 
     private Keycloak getKeycloakInstance(){
         return Keycloak.getInstance(keycloakProperties.getAuthServerUrl(),

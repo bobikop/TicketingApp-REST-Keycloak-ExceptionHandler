@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Slf4j
+@Slf4j  // coming from lombok and replacing logger interface commented below
 public class LoggingAspect {
 
 //    Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
@@ -30,7 +30,7 @@ public class LoggingAspect {
     public void beforeAnyProjectAndTaskControllerAdvice(JoinPoint joinPoint) {
         log.info("Before -> Method: {}, User: {}"
         , joinPoint.getSignature().toShortString()
-        , getUsername());
+        , getUsername()); // method getUsername listed above
     }
 
     @AfterReturning(pointcut = "anyProjectAndTaskControllerPC()", returning = "results")

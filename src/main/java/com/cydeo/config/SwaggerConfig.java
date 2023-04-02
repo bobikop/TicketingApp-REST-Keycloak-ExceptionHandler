@@ -24,7 +24,7 @@ public class SwaggerConfig {
     }
 
     @Bean
-    public OpenAPI customOpenApi() { // configuration file to create swegger documentation for our app including OAuth 2 security structure
+    public OpenAPI customOpenApi() { // configuration file to create swagger documentation for our app including OAuth 2 security structure
         return new OpenAPI()
                 .info(getInfo())
                 .components(new Components()
