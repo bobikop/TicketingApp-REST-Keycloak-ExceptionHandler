@@ -21,7 +21,7 @@ public class ResponseWrapper {
     public ResponseWrapper(String message, Object data,HttpStatus httpStatus) {
         this.success = true;
         this.message = message;
-        this.code = httpStatus.value();
+        this.code = httpStatus.value(); // to be able to change http status we added this field as  a parameter
         this.data = data;
     }
 
