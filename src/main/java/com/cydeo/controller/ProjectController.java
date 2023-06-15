@@ -14,7 +14,7 @@ import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/project")
+@RequestMapping("/api/v1/project") // this is naming convention the end points while we crete API's
 @Tag(name = "ProjectController",description = "Project API")
 public class ProjectController {
 
