@@ -28,6 +28,8 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
                 .permitAll();
         http.csrf().disable();
     }
+
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         KeycloakAuthenticationProvider keycloakAuthenticationProvider =

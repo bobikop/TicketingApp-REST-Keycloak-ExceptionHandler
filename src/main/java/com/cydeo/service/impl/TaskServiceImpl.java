@@ -76,7 +76,6 @@ public class TaskServiceImpl implements TaskService {
             convertedTask.setAssignedDate(task.get().getAssignedDate());
             taskRepository.save(convertedTask);
         }
-
     }
 
     @Override
@@ -88,7 +87,6 @@ public class TaskServiceImpl implements TaskService {
             foundTask.get().setIsDeleted(true);
             taskRepository.save(foundTask.get());
         }
-
     }
 
     @Override
@@ -127,8 +125,7 @@ public class TaskServiceImpl implements TaskService {
 
         UserDTO loggedInUser = userService.findByUserName(username);
 
-        List<Task> tasks = taskRepository.
-                findAllByTaskStatusIsNotAndAssignedEmployee(status, userMapper.convertToEntity(loggedInUser));
+        List<Task> tasks = taskRepository.findAllByTaskStatusIsNotAndAssignedEmployee(status, userMapper.convertToEntity(loggedInUser));
         return tasks.stream().map(taskMapper::convertToDto).collect(Collectors.toList());
     }
 
