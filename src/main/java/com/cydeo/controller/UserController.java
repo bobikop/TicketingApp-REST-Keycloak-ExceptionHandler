@@ -34,6 +34,7 @@ public class UserController {
         return ResponseEntity.ok(new ResponseWrapper("Users are successfully retrieves",userDTOList, HttpStatus.OK));
     }
 
+
     @ExecutionTime
     @GetMapping("/{username}")
     @RolesAllowed("Admin")
