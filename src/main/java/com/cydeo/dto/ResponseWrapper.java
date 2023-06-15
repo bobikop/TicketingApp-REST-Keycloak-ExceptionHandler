@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL) // if anything is null do not show (Jackson is modified JSON)
 @Builder
 public class ResponseWrapper {
 
