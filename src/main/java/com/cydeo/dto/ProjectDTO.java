@@ -39,7 +39,7 @@ public class ProjectDTO {
 
     private Status projectStatus;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY) // not to see information about completed Task when creating only when retrieving test
     private int completeTaskCounts;
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private int unfinishedTaskCounts;

@@ -85,5 +85,4 @@ public class TaskController {
         List<TaskDTO> taskDTOList = taskService.listAllTasksByStatus(Status.COMPLETE);
         return ResponseEntity.ok(new ResponseWrapper("Tasks are successfully retrieved",taskDTOList,HttpStatus.OK));
     }
-
 }
