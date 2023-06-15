@@ -14,7 +14,7 @@ import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/task")
+@RequestMapping("/api/v1/task") // this is naming convention the end points while we crete API's
 @Tag(name = "TaskController",description = "Task API")
 public class TaskController {
 
