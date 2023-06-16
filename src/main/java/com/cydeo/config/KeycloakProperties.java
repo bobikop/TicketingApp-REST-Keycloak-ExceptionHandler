@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class KeycloakProperties {
 
     // @Value bringing value from application properties file
+    // reason for creation this clas is that we for example we can use realm value at any class we need
     @Value("${keycloak.realm}")
     private String realm;
     @Value("${keycloak.auth-server-url}")
