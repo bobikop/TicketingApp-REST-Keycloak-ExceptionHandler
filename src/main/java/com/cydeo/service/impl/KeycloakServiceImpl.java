@@ -26,7 +26,7 @@ public class KeycloakServiceImpl implements KeycloakService {
 
     public KeycloakServiceImpl(KeycloakProperties keycloakProperties) {
 
-        this.keycloakProperties = keycloakProperties;
+        this.keycloakProperties = keycloakProperties; // injected Keycloak properties  so we can use variables (example line 54 keycloakProperties.getRealm())
     }
 
     @Override
