@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 @Setter
 public class KeycloakProperties {
 
+    // @Value bringing value from application properties file
     @Value("${keycloak.realm}")
     private String realm;
     @Value("${keycloak.auth-server-url}")
