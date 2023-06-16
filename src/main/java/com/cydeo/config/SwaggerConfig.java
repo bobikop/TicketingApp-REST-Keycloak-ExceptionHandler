@@ -17,7 +17,7 @@ public class SwaggerConfig {
     private static final String OAUTH_SCHEME_NAME = "oAuth";
     private static final String PROTOCOL_URL_FORMAT = "%s/realms/%s/protocol/openid-connect";
 
-    private final KeycloakProperties keycloakProperties;
+    private final KeycloakProperties keycloakProperties; // inject KeycloakProperties so we can use fields for example realm
 
     public SwaggerConfig(KeycloakProperties keycloakProperties) {
         this.keycloakProperties = keycloakProperties;
@@ -51,7 +51,7 @@ public class SwaggerConfig {
         OAuthFlow flow = createAuthorizationCodeFlow();
 
         return new OAuthFlows()
-                .authorizationCode(flow);
+                .authorizationCode(flow); // define what kind of grant type we are using
     }
 
     private OAuthFlow createAuthorizationCodeFlow() {
