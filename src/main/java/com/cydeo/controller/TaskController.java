@@ -50,7 +50,7 @@ public class TaskController {
 
     @DeleteMapping("/{taskId}")
     @RolesAllowed("Manager")
-    @Operation(summary = "Delete task")
+    @Operation(summary = "Delete task") // adding title on the swagger document
     public ResponseEntity<ResponseWrapper> deleteTask(@PathVariable("taskId") Long taskId){
         taskService.delete(taskId);
         return ResponseEntity.ok(new ResponseWrapper("Task is successfully deleted", HttpStatus.OK));
