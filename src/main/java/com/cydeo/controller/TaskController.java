@@ -58,6 +58,7 @@ public class TaskController {
 
     @PutMapping
     @RolesAllowed("Update task")
+    @Operation(summary = "Update Task") // add information about method which will be visible in swagger document
     public ResponseEntity<ResponseWrapper> updateTask(@RequestBody TaskDTO task){
         taskService.update(task);
         return ResponseEntity.ok(new ResponseWrapper("Task is successfully updated", HttpStatus.OK));
