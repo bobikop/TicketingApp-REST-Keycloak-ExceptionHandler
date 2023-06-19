@@ -34,7 +34,6 @@ public class UserController {
         return ResponseEntity.ok(new ResponseWrapper("Users are successfully retrieves",userDTOList, HttpStatus.OK));
     }
 
-
     @ExecutionTime
     @GetMapping("/{username}")
     @RolesAllowed("Admin")
@@ -43,7 +42,6 @@ public class UserController {
         UserDTO user = userService.findByUserName(userName);
         return ResponseEntity.ok(new ResponseWrapper("User is successfully retrieved",user, HttpStatus.OK));
     }
-
     @PostMapping
     @RolesAllowed("Admin")
     @Operation(summary = "Create user")
