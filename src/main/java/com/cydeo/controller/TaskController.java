@@ -78,7 +78,6 @@ public class TaskController {
         return ResponseEntity.ok(new ResponseWrapper("Task is successfully updated",HttpStatus.OK));
 
     }
-
     @GetMapping("/employee/archive")
     @RolesAllowed("Employee")
     public ResponseEntity<ResponseWrapper> employeeArchivedTasks(){
