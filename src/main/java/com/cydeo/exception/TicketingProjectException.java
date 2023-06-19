@@ -6,6 +6,4 @@ public class TicketingProjectException extends Exception{
         super(message);
     }
 }
-
-
 // This is the first step - create one class TicketingProjectException and extends Exception class
