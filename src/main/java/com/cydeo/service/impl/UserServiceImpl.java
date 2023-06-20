@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @DefaultExceptionMessage(defaultMessage = "Failed to delete user")
+    @DefaultExceptionMessage(defaultMessage = "Failed to delete user") // add default exception message by using this annotation
     public void delete(String username) throws TicketingProjectException {
 
         User user = userRepository.findByUserNameAndIsDeleted(username, false);
